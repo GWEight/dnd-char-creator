@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание персонажа D&D</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Создание персонажа D&D</h1>
+    <form id="character-form">
+        <label for="race">Раса:</label>
+        <select id="race">
+            <option value="Человек">Человек</option>
+            <option value="Эльф">Эльф</option>
+            <option value="Дворф">Дворф</option>
+            <option value="Хоббит">Хоббит</option>
+            <option value="Орк">Орк</option>
+            <option value="Демон">Демон</option>
+            <option value="Дриада">Дриада</option>
+            <!-- Добавьте дополнительные расы здесь -->
+        </select>
+
+        <label for="class">Класс:</label>
+        <select id="class" onchange="updateAbilities()">
+            <option value="Паладин">Паладин</option>
+            <option value="Воин">Воин</option>
+            <option value="Маг">Маг</option>
+            <option value="Жрец">Жрец</option>
+            <option value="Разбойник">Разбойник</option>
+            <option value="Бард">Бард</option>
+            <option value="Друид">Друид</option>
+            <!-- Добавьте дополнительные классы здесь -->
+        </select>
+
+        <div class="racial-ability-block">
+            <div class="racial-ability-holder">
+                <label for="racial-ability">Рассовая способность:</label>
+                <input id="racial-ability" disabled/>
+                    <!-- Рассовая способность будет присвоена автоматически -->
+                </select>
+            </div>
+            <div id="racial-ability-reroll">&#x1F504;</div>
+        </div>
+
+
+        <!-- <label for="divine-curse">Божественный дар/проклятие:</label>
+        <select id="divine-curse">
+            <option value="Проклятие демона">Проклятие демона</option>
+            <option value="Божественный дар">Божественный дар</option>
+            <option value="Ничего">Ничего</option>
+            Добавьте здесь дополнительные проклятия и дары
+        </select> -->
+
+        <div class="characteristic">
+            <h2>Характеристики</h2>
+            <div class="strength-holder">
+                <label for="strength">Сила:</label>
+                <input type="number" id="strength" value="1" min="3" max="99"/>
+            </div>
+            <div class="dexterity-holder">
+                <label for="dexterity">Ловкость:</label>
+                <input type="number" id="dexterity" value="1" min="3" max="99"/>
+            </div>
+
+            <div class="constitution-holder">
+                <label for="constitution">Выносливость:</label>
+                <input type="number" id="constitution" value="1" min="3" max="99"/>
+            </div>
+
+            <div class="intelligence-holder">
+                <label for="intelligence">Интеллект:</label>
+                <input type="number" id="intelligence" value="1" min="3" max="99"/>
+            </div>
+
+            <div class="wisdom-holder">
+                <label for="wisdom">Мудрость:</label>
+                <input type="number" id="wisdom" value="1" min="3" max="99"/>
+            </div>
+
+            <div class="charisma-holder">
+                <label for="charisma">Харизма:</label>
+                <input type="number" id="charisma" value="1" min="3" max="99"/>
+            </div>
+        </div>
+        <h2>Способности персонажа</h2>
+        
+        <select id="abilities" multiple>
+            <!-- Способности будут добавлены динамически -->
+        </select>
+
+        <div class="hud-bar">
+            <div class="hp-holder">
+                <label for="hp">Здоровье:</label>
+                <input type="number" id="hp" min="0" max="999"/>
+            </div>
+            <div class="def-holder">
+                <label for="def">Защита:</label>
+                <input type="number" id="def" min="0" max="999"/>
+            </div>
+            <div class="gold-holder">
+                <label for="gold">Золото:</label>
+                <input type="number" id="gold" min="0" max="99999"/>
+            </div>
+        </div>
+    
+        
+        <label for="notes">Заметки:</label>
+        <textarea wrap="soft" id="notes" rows="5" cols="30"></textarea>
+
+        <button id="saveButton" type="submit">Сохранить</button>
+        <button type="button" id="delete-character">Удалить персонажа</button>
+        <button type="button" id="show-ability-description">Показать описание способностей</button>
+    </form>
+
+    <div id="ability-popup" class="ability-popup">
+        <div id="ability-popup-close">❌</div>
+        <h3>Способности</h3>
+        <span id="abilitys-des-text"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
