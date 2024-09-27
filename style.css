@@ -140,6 +140,10 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.92);
 }
 
+#abilitys-des-text {
+    padding-bottom: 15px;
+}
+
 #ability-popup-close {
     position: absolute;
     right: 10px;
